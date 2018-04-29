@@ -14,8 +14,10 @@ ecosystem.
 
 ## What’s Inside The Tin
 
+  - `kernel_state`: Retrieve kernel state information
   - `read_dsstore`: Read a ‘.DS\_Store’ from a file/URL
   - `software_update_history`: Retrieve Software Update history
+  - `sw_vers`: Retrieve macOS Operating System Version Information
 
 The following functions are implemented:
 
@@ -35,6 +37,27 @@ packageVersion("mactheknife")
 ```
 
     ## [1] '0.1.0'
+
+### Kernel state vars
+
+``` r
+kernel_state()
+```
+
+    ## # A tibble: 1,217 x 2
+    ##    setting               value                        
+    ##    <chr>                 <chr>                        
+    ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
+    ##  2 user.bc_base_max      99                           
+    ##  3 user.bc_dim_max       2048                         
+    ##  4 user.bc_scale_max     99                           
+    ##  5 user.bc_string_max    1000                         
+    ##  6 user.coll_weights_max 2                            
+    ##  7 user.expr_nest_max    32                           
+    ##  8 user.line_max         2048                         
+    ##  9 user.re_dup_max       255                          
+    ## 10 user.posix2_version   200112                       
+    ## # ... with 1,207 more rows
 
 ### `.DS_Store` example
 
@@ -120,3 +143,14 @@ software_update_history()
     ##  9 Degrees Pro                   4.2.1          2017-01-23 16:06:56 <chr [1]>          storedownloadd  <NA>       
     ## 10 WordService                   2.8.1          2017-01-23 16:06:57 <chr [1]>          storedownloadd  <NA>       
     ## # ... with 580 more rows
+
+### macOS Version Info (short)
+
+``` r
+sw_vers()
+```
+
+    ## # A tibble: 1 x 3
+    ##   ProductName ProductVersion BuildVersion
+    ##   <chr>       <chr>          <chr>       
+    ## 1 Mac OS X    10.12.6        16G1405

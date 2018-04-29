@@ -45,7 +45,7 @@ software_update_history <- function(su_hist_file = "/Library/Receipts/InstallHis
         "real" = as.numeric(unlist(grandkids[[i+1]])),
         "true" = TRUE,
         "false" = FALSE,
-        "array" = list(setNames(list(unlist(grandkids[[i+1]], use.names=FALSE)), key_name)),
+        "array" = list(purrr::set_names(list(unlist(grandkids[[i+1]], use.names=FALSE)), key_name)),
         "data" = "TODO",
         "UNKNOWN - TODO"
       )

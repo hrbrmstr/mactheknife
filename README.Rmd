@@ -16,8 +16,10 @@ A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 
 ## What's Inside The Tin
 
+- `kernel_state`:	Retrieve kernel state information
 - `read_dsstore`:	Read a '.DS_Store' from a file/URL
 - `software_update_history`:	Retrieve Software Update history
+- `sw_vers`:	Retrieve macOS Operating System Version Information
 
 The following functions are implemented:
 
@@ -39,6 +41,12 @@ library(mactheknife)
 # current verison
 packageVersion("mactheknife")
 
+```
+
+### Kernel state vars
+
+```{r}
+kernel_state()
 ```
 
 ### `.DS_Store` example 
@@ -79,4 +87,11 @@ str(x)
 
 ```{r}
 software_update_history()
+```
+
+
+### macOS Version Info (short)
+
+```{r}
+sw_vers()
 ```
