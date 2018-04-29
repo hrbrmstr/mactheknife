@@ -2,20 +2,26 @@
 % Please edit documentation in R/read-dsstore.R
 \name{read_dsstore}
 \alias{read_dsstore}
-\title{Read a \code{.DS_Store} file}
+\title{Read a \code{.DS_Store} from a file/URL}
 \usage{
 read_dsstore(path)
 }
 \arguments{
-\item{path}{a path to a valid \code{.DS_Store} file (\code{\link[=path.expand]{path.expand()}} will be called)}
+\item{path}{a path to a valid \code{.DS_Store} file (\code{\link[=path.expand]{path.expand()}} will be called) \emph{or}
+a link to an \code{http[s]} reachable \code{.DS_Store} file. If a URL, \code{\link[=download.file]{download.file()}}
+will be used to retrieve the remote \code{.DS_Store} file (to reduce package
+dependencies).}
 }
 \value{
 a character vector of filenames in the \code{.DS_Store} file or
 a length 0 character vector if no parseable data was found
 }
 \description{
-Read a \code{.DS_Store} file
+Read a \code{.DS_Store} from a file/URL
 }
 \examples{
 read_dsstore(system.file("extdat", "DS_Store.ctf", package = "mactheknife"))
+}
+\references{
+A thin wrapper around the 'Python' 'dsstore' module \url{https://github.com/gehaxelt/Python-dsstore} by 'Sebastian Neef'.
 }

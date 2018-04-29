@@ -1,7 +1,6 @@
 #' Read 'macOS' .DS_Store' Files
 #'
-#' A thin wrapper around the 'Python' 'dsstore' module
-#' <https://github.com/gehaxelt/Python-dsstore> by 'Sebastian Neef'.
+#' A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 #'
 #' @md
 #' @name mactheknife

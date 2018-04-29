@@ -6,8 +6,7 @@
 \alias{mactheknife-package}
 \title{Read 'macOS' .DS_Store' Files}
 \description{
-A thin wrapper around the 'Python' 'dsstore' module
-\url{https://github.com/gehaxelt/Python-dsstore} by 'Sebastian Neef'.
+A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 }
 \author{
 Bob Rudis (bob@rud.is)

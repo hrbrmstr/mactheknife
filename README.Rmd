@@ -4,20 +4,19 @@ output: rmarkdown::github_document
 
 # mactheknife
 
-Read 'macOS' .DS_Store' Files 
+Various 'macOS'-oriented Tools and Utilities
 
 ## Description
 
-A thin wrapper around the 'Python' 'dsstore' module <https://github.com/gehaxelt/Python-dsstore> by 'Sebastian Neef'.
+A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 
 ## NOTE
 
-- This may turn into a broader "macOS hacking" package
 - Uses `reticulate` so a working Python implementation is needed
 
 ## What's Inside The Tin
 
-- `read_dsstore`:	Read a '.DS_Store' file
+- `read_dsstore`:	Read a '.DS_Store' from a file/URL
 
 The following functions are implemented:
 
@@ -41,7 +40,7 @@ packageVersion("mactheknife")
 
 ```
 
-## Built-in data
+## `.DS_Store` example using built-in data
 
 ```{r}
 read_dsstore(
@@ -49,7 +48,13 @@ read_dsstore(
 )
 ```
 
-## My "~/projects" folder (use your own dir as an example)
+## A URL I should not have let a `.DS_Store` file lying around in
+
+```{r}
+read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
+```
+
+## `.DS_Store` larger example using my "~/projects" folder (use your own dir as an example)
 
 ```{r}
 library(magrittr)

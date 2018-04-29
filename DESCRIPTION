@@ -1,6 +1,6 @@
 Package: mactheknife
 Type: Package
-Title: Read 'macOS' .DS_Store' Files
+Title: Various 'macOS'-oriented Tools and Utilities
 Version: 0.1.0
 Date: 2018-04-29
 Authors@R: c(
@@ -10,8 +10,8 @@ Authors@R: c(
            comment = "Python dsstore module <https://github.com/gehaxelt/Python-dsstore>")
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A thin wrapper around the 'Python' 'dsstore' module
-    <https://github.com/gehaxelt/Python-dsstore> by 'Sebastian Neef'.
+Description: A set of tools/methods and data that are geared towards the 'macOS' 
+    ecosystem.
 URL: https://github.com/hrbrmstr/mactheknife
 BugReports: https://github.com/hrbrmstr/mactheknife/issues
 SystemRequirements: Python
