@@ -1,0 +1,26 @@
+Package: mactheknife
+Type: Package
+Title: Read 'macOS' .DS_Store' Files
+Version: 0.1.0
+Date: 2018-04-29
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Sebastian", "Neef", email = "github@gehaxelt.in", role = c("aut", "cph"), 
+           comment = "Python dsstore module <https://github.com/gehaxelt/Python-dsstore>")
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: A thin wrapper around the 'Python' 'dsstore' module
+    <https://github.com/gehaxelt/Python-dsstore> by 'Sebastian Neef'.
+URL: https://github.com/hrbrmstr/mactheknife
+BugReports: https://github.com/hrbrmstr/mactheknife/issues
+SystemRequirements: Python
+Encoding: UTF-8
+License: MIT + file LICENSE
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0),
+    reticulate
+RoxygenNote: 6.0.1.9000
