@@ -6,5 +6,7 @@
 #' @name mactheknife
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
-#' @import reticulate
+#' @import reticulate sys xml2
+#' @importFrom purrr map_df
+#' @importFrom anytime anytime
 NULL

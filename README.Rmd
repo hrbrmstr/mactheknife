@@ -17,6 +17,7 @@ A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 ## What's Inside The Tin
 
 - `read_dsstore`:	Read a '.DS_Store' from a file/URL
+- `software_update_history`:	Retrieve Software Update history
 
 The following functions are implemented:
 
@@ -40,7 +41,9 @@ packageVersion("mactheknife")
 
 ```
 
-## `.DS_Store` example using built-in data
+### `.DS_Store` example 
+
+Using built-in data
 
 ```{r}
 read_dsstore(
@@ -48,13 +51,17 @@ read_dsstore(
 )
 ```
 
-## A URL I should not have let a `.DS_Store` file lying around in
+### From a URL
+
+A URL I should not have let a `.DS_Store` file lying around in
 
 ```{r}
 read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
 ```
 
-## `.DS_Store` larger example using my "~/projects" folder (use your own dir as an example)
+### A Directory of`.DS_Store`s
+
+A larger example using my "~/projects" folder (use your own dir as an example).
 
 ```{r}
 library(magrittr)
@@ -66,4 +73,10 @@ list.files(
   lapply(read_dsstore) -> x
 
 str(x)
+```
+
+### "Software Update" History
+
+```{r}
+software_update_history()
 ```

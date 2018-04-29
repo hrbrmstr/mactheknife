@@ -15,6 +15,7 @@ ecosystem.
 ## What’s Inside The Tin
 
   - `read_dsstore`: Read a ‘.DS\_Store’ from a file/URL
+  - `software_update_history`: Retrieve Software Update history
 
 The following functions are implemented:
 
@@ -35,7 +36,9 @@ packageVersion("mactheknife")
 
     ## [1] '0.1.0'
 
-## `.DS_Store` example using built-in data
+### `.DS_Store` example
+
+Using built-in data
 
 ``` r
 read_dsstore(
@@ -45,7 +48,10 @@ read_dsstore(
 
     ## [1] "favicon.ico"     "flag"            "static"          "templates"       "vulnerable.py"   "vulnerable.wsgi"
 
-## A URL I should not have let a `.DS_Store` file lying around in
+### From a URL
+
+A URL I should not have let a `.DS_Store` file lying around
+    in
 
 ``` r
 read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
@@ -54,7 +60,10 @@ read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
     ## [1] "06-Creating-a-Graph-of-Retweet-Relationships_files"    "07-Visualizing-a-Graph-of-Retweet-Relationships_files"
     ## [3] "20-Visualizing-Geodata-with-a-Dorling-Cartogram_files" "libs"
 
-## `.DS_Store` larger example using my “~/projects” folder (use your own dir as an example)
+### A Directory of`.DS_Store`s
+
+A larger example using my “~/projects” folder (use your own dir as an
+example).
 
 ``` r
 library(magrittr)
@@ -90,3 +99,24 @@ str(x)
     ##  $ : chr "plots"
     ##  $ : chr [1:2] "top-1m.csv" "top-1m.csv.zip"
     ##  $ : chr(0)
+
+### “Software Update” History
+
+``` r
+software_update_history()
+```
+
+    ## # A tibble: 590 x 6
+    ##    displayName                   displayVersion date                packageIdentifiers processName     contentType
+    ##    <chr>                         <chr>          <dttm>              <list>             <chr>           <chr>      
+    ##  1 Chinese Word List Update      5.7            2017-01-23 16:01:55 <chr [1]>          softwareupdated config-data
+    ##  2 MRT Configuration Data        1.14           2017-01-23 16:02:53 <chr [1]>          softwareupdated config-data
+    ##  3 Gatekeeper Configuration Data 107            2017-01-23 16:02:55 <chr [1]>          softwareupdated config-data
+    ##  4 XProtectPlistConfigData       1.0            2017-01-23 16:03:16 <chr [1]>          softwareupdated config-data
+    ##  5 iTunes                        12.5.4         2017-01-23 16:04:43 <chr [5]>          softwareupdated <NA>       
+    ##  6 GarageBand                    10.1.3         2017-01-23 16:06:48 <chr [1]>          storedownloadd  <NA>       
+    ##  7 OneDrive                      17.3.6725      2017-01-23 16:06:54 <chr [1]>          storedownloadd  <NA>       
+    ##  8 Table Tool                    1.1.2          2017-01-23 16:06:55 <chr [1]>          storedownloadd  <NA>       
+    ##  9 Degrees Pro                   4.2.1          2017-01-23 16:06:56 <chr [1]>          storedownloadd  <NA>       
+    ## 10 WordService                   2.8.1          2017-01-23 16:06:57 <chr [1]>          storedownloadd  <NA>       
+    ## # ... with 580 more rows
