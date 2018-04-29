@@ -14,6 +14,8 @@ ecosystem.
 
 ## What’s Inside The Tin
 
+  - `airport_scan`: Scan for available wireless network (requires Wi-Fi
+    enabled Mac)
   - `kernel_state`: Retrieve kernel state information
   - `read_dsstore`: Read a ‘.DS\_Store’ from a file/URL
   - `software_update_history`: Retrieve Software Update history
@@ -154,3 +156,22 @@ sw_vers()
     ##   ProductName ProductVersion BuildVersion
     ##   <chr>       <chr>          <chr>       
     ## 1 Mac OS X    10.12.6        16G1405
+
+### Airport scan
+
+``` r
+airport_scan()
+```
+
+    ## Scanning for available wireless networks...
+
+    ## # A tibble: 7 x 7
+    ##   ssid          bssid              rssi channel ht    cc    security                                      
+    ## * <chr>         <chr>             <int> <chr>   <chr> <chr> <chr>                                         
+    ## 1 RDN-5G        46:d9:e7:b3:80:47   -66 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
+    ## 2 RDN-100       56:d9:e7:b3:80:47   -72 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
+    ## 3 xfinitywifi   6e:e3:0e:49:32:3d   -91 6       Y     US    NONE                                          
+    ## 4 shortcircut21 5c:e3:0e:49:32:3d   -91 6       Y     US    WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP)
+    ## 5 H20man-guest  c2:56:27:62:a7:33   -87 1,+1    Y     --    NONE                                          
+    ## 6 RDN-5G        46:d9:e7:7b:9e:25   -51 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
+    ## 7 RDN-100       56:d9:e7:7b:9e:25   -52 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)

@@ -16,6 +16,7 @@ A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 
 ## What's Inside The Tin
 
+- `airport_scan`:	Scan for available wireless network (requires Wi-Fi enabled Mac)
 - `kernel_state`:	Retrieve kernel state information
 - `read_dsstore`:	Read a '.DS_Store' from a file/URL
 - `software_update_history`:	Retrieve Software Update history
@@ -95,3 +96,10 @@ software_update_history()
 ```{r}
 sw_vers()
 ```
+
+### Airport scan
+
+```{r airport, cache=TRUE}
+airport_scan()
+```
+

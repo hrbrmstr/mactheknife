@@ -7,6 +7,6 @@
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
 #' @import reticulate sys xml2
-#' @importFrom purrr map_df %>% flatten_chr set_names
+#' @importFrom purrr map_df %>% flatten_chr set_names map_chr
 #' @importFrom anytime anytime
 NULL
