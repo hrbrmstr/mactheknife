@@ -20,7 +20,7 @@ The following functions are implemented:
 
 - `airport_scan`:	Scan for available wireless network (requires Wi-Fi enabled Mac)
 - `kernel_state`:	Retrieve kernel state information
-- `find_dsstore:	Find and optionally remove '.DS_Store' files on a locally-accessible filesystem
+- `find_dsstore`:	Find and optionally remove '.DS_Store' files on a locally-accessible filesystem
 - `read_dsstore`:	Read a '.DS_Store' from a file/URL
 - `software_update_history`:	Retrieve Software Update history
 - `sw_vers`:	Retrieve macOS Operating System Version Information

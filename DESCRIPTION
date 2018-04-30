@@ -26,6 +26,7 @@ Depends:
 Imports:
     sys,
     xml2,
+    stats,
     utils,
     purrr,
     anytime
