@@ -7,5 +7,6 @@
 ^NOTES\.*html$
 ^\.codecov\.yml$
 ^README_files$
+^README_cache$
 ^doc$
 ^tmp$

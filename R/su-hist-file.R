@@ -53,7 +53,7 @@ software_update_history <- function(su_hist_file = "/Library/Receipts/InstallHis
       dat[j] <- as.list(val)
       j <- j + 1
     }
-    setNames(dat, keynms)
+    purrr::set_names(dat, keynms)
   }) -> xdf
 
   xdf[,c("displayName", "displayVersion", "date", "packageIdentifiers", "processName", "contentType")]

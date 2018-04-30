@@ -21,6 +21,8 @@ The following functions are implemented:
   - `airport_scan`: Scan for available wireless network (requires Wi-Fi
     enabled Mac)
   - `kernel_state`: Retrieve kernel state information
+  - \`find\_dsstore: Find and optionally remove ‘.DS\_Store’ files on a
+    locally-accessible filesystem
   - `read_dsstore`: Read a ‘.DS\_Store’ from a file/URL
   - `software_update_history`: Retrieve Software Update history
   - `sw_vers`: Retrieve macOS Operating System Version Information
@@ -104,40 +106,7 @@ list.files(
 str(x)
 ```
 
-    ## List of 33
-    ##  $ : chr [1:34] "2018-01-24-isds" "2018-cve-palooza" "2018-data-220g" "a-version" ...
-    ##  $ : chr [1:2] "R" "slides"
-    ##  $ : chr "2018-01-24-isds"
-    ##  $ : chr "data"
-    ##  $ : chr [1:6] "2018-data-220g.Rproj" "docs" "README.md" "README.Rmd" ...
-    ##  $ : chr "week01"
-    ##  $ : chr(0) 
-    ##  $ : chr(0) 
-    ##  $ : chr "data"
-    ##  $ : chr(0) 
-    ##  $ : chr(0) 
-    ##  $ : chr "data"
-    ##  $ : chr "data"
-    ##  $ : chr "data"
-    ##  $ : chr(0) 
-    ##  $ : chr "sugrrants-0.1.0"
-    ##  $ : chr "data"
-    ##  $ : chr "packrat"
-    ##  $ : chr [1:4] "lib" "lib-ext" "lib-R" "src"
-    ##  $ : chr "x86_64-apple-darwin15.6.0"
-    ##  $ : chr "3.4.0"
-    ##  $ : chr(0) 
-    ##  $ : chr "data"
-    ##  $ : chr "test"
-    ##  $ : chr [1:2] "lists" "threat-docs"
-    ##  $ : chr(0) 
-    ##  $ : chr "2017q2-threat-report"
-    ##  $ : chr "data"
-    ##  $ : chr [1:2] "q2-threatintelreport-rdpdata.csv" "q2-threatintelreport-smbdata.csv"
-    ##  $ : chr "data"
-    ##  $ : chr "sports-time-of-day"
-    ##  $ : chr "data"
-    ##  $ : chr "data"
+    ##  list()
 
 ### “Software Update” History
 

@@ -7,7 +7,8 @@
 #' @docType package
 #' @author Bob Rudis (bob@@rud.is)
 #' @import reticulate sys xml2
-#' @importFrom purrr map_df %>% flatten_chr set_names map_chr
+#' @importFrom purrr map_df %>% flatten_chr set_names map_chr safely map_lgl
 #' @importFrom anytime anytime
-#' @importFrom utils compareVersion
+#' @importFrom stats complete.cases
+#' @importFrom utils compareVersion download.file read.fwf type.convert
 NULL
