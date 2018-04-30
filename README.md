@@ -16,14 +16,14 @@ ecosystem.
 
 ## What’s Inside The Tin
 
+The following functions are implemented:
+
   - `airport_scan`: Scan for available wireless network (requires Wi-Fi
     enabled Mac)
   - `kernel_state`: Retrieve kernel state information
   - `read_dsstore`: Read a ‘.DS\_Store’ from a file/URL
   - `software_update_history`: Retrieve Software Update history
   - `sw_vers`: Retrieve macOS Operating System Version Information
-
-The following functions are implemented:
 
 ## Installation
 
