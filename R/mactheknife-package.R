@@ -9,4 +9,5 @@
 #' @import reticulate sys xml2
 #' @importFrom purrr map_df %>% flatten_chr set_names map_chr
 #' @importFrom anytime anytime
+#' @importFrom utils compareVersion
 NULL

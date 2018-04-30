@@ -10,7 +10,9 @@ ecosystem.
 
 ## NOTE
 
-  - Uses `reticulate` so a working Python implementation is needed
+  - Uses `reticulate` so a working Python *3* implementation is needed.
+    Consider setting `RETICULATE_PYTHON` to a valid, working Python 3
+    installation if this package is not working for you.
 
 ## What’s Inside The Tin
 
@@ -46,7 +48,7 @@ packageVersion("mactheknife")
 kernel_state()
 ```
 
-    ## # A tibble: 1,217 x 2
+    ## # A tibble: 1,175 x 2
     ##    setting               value                        
     ##    <chr>                 <chr>                        
     ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
@@ -59,7 +61,7 @@ kernel_state()
     ##  8 user.line_max         2048                         
     ##  9 user.re_dup_max       255                          
     ## 10 user.posix2_version   200112                       
-    ## # ... with 1,207 more rows
+    ## # ... with 1,165 more rows
 
 ### `.DS_Store` example
 
@@ -102,28 +104,40 @@ list.files(
 str(x)
 ```
 
-    ## List of 21
-    ##  $ : chr [1:20] "2017-dashboard" "2017-tlapd" "cataps" "congress-privacy" ...
-    ##  $ : chr "greenery-palettes"
+    ## List of 33
+    ##  $ : chr [1:34] "2018-01-24-isds" "2018-cve-palooza" "2018-data-220g" "a-version" ...
+    ##  $ : chr [1:2] "R" "slides"
+    ##  $ : chr "2018-01-24-isds"
+    ##  $ : chr "data"
+    ##  $ : chr [1:6] "2018-data-220g.Rproj" "docs" "README.md" "README.Rmd" ...
+    ##  $ : chr "week01"
+    ##  $ : chr(0) 
+    ##  $ : chr(0) 
+    ##  $ : chr "data"
+    ##  $ : chr(0) 
+    ##  $ : chr(0) 
     ##  $ : chr "data"
     ##  $ : chr "data"
+    ##  $ : chr "data"
     ##  $ : chr(0) 
-    ##  $ : chr(0) 
-    ##  $ : chr(0) 
+    ##  $ : chr "sugrrants-0.1.0"
+    ##  $ : chr "data"
     ##  $ : chr "packrat"
-    ##  $ : chr "lib"
+    ##  $ : chr [1:4] "lib" "lib-ext" "lib-R" "src"
     ##  $ : chr "x86_64-apple-darwin15.6.0"
     ##  $ : chr "3.4.0"
     ##  $ : chr(0) 
     ##  $ : chr "data"
-    ##  $ : chr "lyme"
-    ##  $ : chr "packrat"
-    ##  $ : chr "lib"
-    ##  $ : chr "x86_64-apple-darwin15.6.0"
-    ##  $ : chr "3.4.1"
-    ##  $ : chr "plots"
-    ##  $ : chr [1:2] "top-1m.csv" "top-1m.csv.zip"
-    ##  $ : chr(0)
+    ##  $ : chr "test"
+    ##  $ : chr [1:2] "lists" "threat-docs"
+    ##  $ : chr(0) 
+    ##  $ : chr "2017q2-threat-report"
+    ##  $ : chr "data"
+    ##  $ : chr [1:2] "q2-threatintelreport-rdpdata.csv" "q2-threatintelreport-smbdata.csv"
+    ##  $ : chr "data"
+    ##  $ : chr "sports-time-of-day"
+    ##  $ : chr "data"
+    ##  $ : chr "data"
 
 ### “Software Update” History
 
@@ -131,20 +145,20 @@ str(x)
 software_update_history()
 ```
 
-    ## # A tibble: 590 x 6
-    ##    displayName                   displayVersion date                packageIdentifiers processName     contentType
-    ##    <chr>                         <chr>          <dttm>              <list>             <chr>           <chr>      
-    ##  1 Chinese Word List Update      5.7            2017-01-23 16:01:55 <chr [1]>          softwareupdated config-data
-    ##  2 MRT Configuration Data        1.14           2017-01-23 16:02:53 <chr [1]>          softwareupdated config-data
-    ##  3 Gatekeeper Configuration Data 107            2017-01-23 16:02:55 <chr [1]>          softwareupdated config-data
-    ##  4 XProtectPlistConfigData       1.0            2017-01-23 16:03:16 <chr [1]>          softwareupdated config-data
-    ##  5 iTunes                        12.5.4         2017-01-23 16:04:43 <chr [5]>          softwareupdated <NA>       
-    ##  6 GarageBand                    10.1.3         2017-01-23 16:06:48 <chr [1]>          storedownloadd  <NA>       
-    ##  7 OneDrive                      17.3.6725      2017-01-23 16:06:54 <chr [1]>          storedownloadd  <NA>       
-    ##  8 Table Tool                    1.1.2          2017-01-23 16:06:55 <chr [1]>          storedownloadd  <NA>       
-    ##  9 Degrees Pro                   4.2.1          2017-01-23 16:06:56 <chr [1]>          storedownloadd  <NA>       
-    ## 10 WordService                   2.8.1          2017-01-23 16:06:57 <chr [1]>          storedownloadd  <NA>       
-    ## # ... with 580 more rows
+    ## # A tibble: 1,513 x 6
+    ##    displayName                          displayVersion date                packageIdentifiers processName   contentType
+    ##    <chr>                                <chr>          <dttm>              <list>             <chr>         <chr>      
+    ##  1 Command Line Developer Tools for OS… 5.1.0.0        2014-10-14 19:06:45 <chr [2]>          softwareupda… <NA>       
+    ##  2 Command Line Tools (OS X 10.9)       6.0            2014-10-14 19:06:45 <chr [2]>          softwareupda… <NA>       
+    ##  3 CoreLSKD Configuration Data          8              2014-10-14 19:40:41 <chr [1]>          softwareupda… config-data
+    ##  4 XProtectPlistConfigData              1.0            2014-10-14 19:40:41 <chr [1]>          softwareupda… config-data
+    ##  5 Chinese Word List Update             3.2            2014-10-14 19:40:41 <chr [1]>          softwareupda… config-data
+    ##  6 Gatekeeper Configuration Data        26.0           2014-10-14 19:40:41 <chr [1]>          softwareupda… config-data
+    ##  7 Digital Camera RAW Compatibility Up… 5.07           2014-10-15 15:48:03 <chr [1]>          softwareupda… <NA>       
+    ##  8 iBooks Update                        1.0.1          2014-10-15 15:48:03 <chr [2]>          softwareupda… <NA>       
+    ##  9 iTunes                               11.4           2014-10-15 15:48:03 <chr [5]>          softwareupda… <NA>       
+    ## 10 Keynote                              6.2.2          2014-10-15 15:48:21 <chr [1]>          storeagent    <NA>       
+    ## # ... with 1,503 more rows
 
 ### macOS Version Info (short)
 
@@ -155,7 +169,7 @@ sw_vers()
     ## # A tibble: 1 x 3
     ##   ProductName ProductVersion BuildVersion
     ##   <chr>       <chr>          <chr>       
-    ## 1 Mac OS X    10.12.6        16G1405
+    ## 1 Mac OS X    10.13.5        17F45c
 
 ### Airport scan
 
@@ -165,13 +179,10 @@ airport_scan()
 
     ## Scanning for available wireless networks...
 
-    ## # A tibble: 7 x 7
-    ##   ssid          bssid              rssi channel ht    cc    security                                      
-    ## * <chr>         <chr>             <int> <chr>   <chr> <chr> <chr>                                         
-    ## 1 RDN-5G        46:d9:e7:b3:80:47   -66 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
-    ## 2 RDN-100       56:d9:e7:b3:80:47   -72 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
-    ## 3 xfinitywifi   6e:e3:0e:49:32:3d   -91 6       Y     US    NONE                                          
-    ## 4 shortcircut21 5c:e3:0e:49:32:3d   -91 6       Y     US    WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP)
-    ## 5 H20man-guest  c2:56:27:62:a7:33   -87 1,+1    Y     --    NONE                                          
-    ## 6 RDN-5G        46:d9:e7:7b:9e:25   -51 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)                      
-    ## 7 RDN-100       56:d9:e7:7b:9e:25   -52 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)
+    ## # A tibble: 4 x 7
+    ##   ssid         bssid              rssi channel ht    cc    security                
+    ## * <chr>        <chr>             <int> <chr>   <chr> <chr> <chr>                   
+    ## 1 NETGEAR79-5G 04:a1:51:2a:47:c5   -88 153,-1  Y     --    WPA2(PSK/AES/AES)       
+    ## 2 RDN-100      56:d9:e7:7b:9e:25   -55 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)
+    ## 3 RDN-5G       46:d9:e7:7b:9e:25   -59 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)
+    ## 4 RDN-5G       46:d9:e7:b3:80:47   -23 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)

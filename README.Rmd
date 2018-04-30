@@ -12,7 +12,7 @@ A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 
 ## NOTE
 
-- Uses `reticulate` so a working Python implementation is needed
+- Uses `reticulate` so a working Python *3* implementation is needed. Consider setting `RETICULATE_PYTHON` to a valid, working Python 3 installation if this package is not working for you.
 
 ## What's Inside The Tin
 

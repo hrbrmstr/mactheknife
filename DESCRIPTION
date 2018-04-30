@@ -26,6 +26,7 @@ Depends:
 Imports:
     sys,
     xml2,
+    utils,
     purrr,
     anytime
 RoxygenNote: 6.0.1.9000
