@@ -27,6 +27,7 @@ Imports:
     sys,
     xml2,
     stats,
+    dplyr,
     utils,
     purrr,
     anytime

@@ -50,7 +50,7 @@ packageVersion("mactheknife")
 kernel_state()
 ```
 
-    ## # A tibble: 1,175 x 2
+    ## # A tibble: 1,212 x 2
     ##    setting               value                        
     ##    <chr>                 <chr>                        
     ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
@@ -63,7 +63,7 @@ kernel_state()
     ##  8 user.line_max         2048                         
     ##  9 user.re_dup_max       255                          
     ## 10 user.posix2_version   200112                       
-    ## # ... with 1,165 more rows
+    ## # ... with 1,202 more rows
 
 ### `.DS_Store` example
 
@@ -86,8 +86,46 @@ A URL I should not have let a `.DS_Store` file lying around
 read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
 ```
 
-    ## [1] "06-Creating-a-Graph-of-Retweet-Relationships_files"    "07-Visualizing-a-Graph-of-Retweet-Relationships_files"
-    ## [3] "20-Visualizing-Geodata-with-a-Dorling-Cartogram_files" "libs"
+    ##  [1] "00-About-the-Author.md"                                        
+    ##  [2] "01-Introduction.md"                                            
+    ##  [3] "01-Using-OAuth.md"                                             
+    ##  [4] "02-Diving-In.md"                                               
+    ##  [5] "02-Trending-Topics.md"                                         
+    ##  [6] "03-Extracting-Tweet-Entities.md"                               
+    ##  [7] "04-Searching-for-Tweets.md"                                    
+    ##  [8] "05-Extracting-a-Retweets-Origins.md"                           
+    ##  [9] "06-Creating-a-Graph-of-Retweet-Relationships.md"               
+    ## [10] "06-Creating-a-Graph-of-Retweet-Relationships_files"            
+    ## [11] "07-Visualizing-a-Graph-of-Retweet-Relationships.md"            
+    ## [12] "07-Visualizing-a-Graph-of-Retweet-Relationships_files"         
+    ## [13] "08-Twitter-Streaming-API.md"                                   
+    ## [14] "09-Making-Robust-Twitter-Requests.md"                          
+    ## [15] "10-Harvesting-Tweets.md"                                       
+    ## [16] "11-Creating-a-Tag-Cloud-from-Tweet-Entities.md"                
+    ## [17] "12-Summarizing-Link-Targets.md"                                
+    ## [18] "13-Harvesting-Friends-and-Followers.md"                        
+    ## [19] "14-Performing-Setwise-Operations.md"                           
+    ## [20] "15-Resolving-User-Profile-Information.md"                      
+    ## [21] "16-Crawling-Followers-to-Approximate-Potential-Influence.md"   
+    ## [22] "16-Crawling-Followers-to-Approximate-Potential-Influence_files"
+    ## [23] "17-Analyzing-Friendship-Relationships-such-as-FoF.md"          
+    ## [24] "18-Analyzing-Friendship-Cliques.md"                            
+    ## [25] "19-Analyzing-Authors-in-Subs.md"                               
+    ## [26] "20-Visualizing-Geodata-with-a-Dorling-Cartogram.md"            
+    ## [27] "20-Visualizing-Geodata-with-a-Dorling-Cartogram_files"         
+    ## [28] "21-Geocoding-Locations-From-Profiles.md"                       
+    ## [29] "21-recipes-for-mining-twitter-with-rtweet.docx"                
+    ## [30] "21-recipes-for-mining-twitter-with-rtweet.epub"                
+    ## [31] "21-recipes-for-mining-twitter-with-rtweet.pdf"                 
+    ## [32] "22-Visualising-Intersecting-Follower-Sets-with-UpsetR.md"      
+    ## [33] "22-Visualising-Intersecting-Follower-Sets-with-UpsetR_files"   
+    ## [34] "data"                                                          
+    ## [35] "figures"                                                       
+    ## [36] "index.html"                                                    
+    ## [37] "index.md"                                                      
+    ## [38] "libs"                                                          
+    ## [39] "search_index.json"                                             
+    ## [40] "style.css"
 
 ### A Directory of`.DS_Store`s
 
@@ -106,7 +144,8 @@ list.files(
 str(x)
 ```
 
-    ##  list()
+    ## List of 1
+    ##  $ : chr "2018-data-220g"
 
 ### “Software Update” History
 
@@ -114,7 +153,7 @@ str(x)
 software_update_history()
 ```
 
-    ## # A tibble: 1,513 x 6
+    ## # A tibble: 1,560 x 6
     ##    displayName                          displayVersion date                packageIdentifiers processName   contentType
     ##    <chr>                                <chr>          <dttm>              <list>             <chr>         <chr>      
     ##  1 Command Line Developer Tools for OS… 5.1.0.0        2014-10-14 19:06:45 <chr [2]>          softwareupda… <NA>       
@@ -127,7 +166,7 @@ software_update_history()
     ##  8 iBooks Update                        1.0.1          2014-10-15 15:48:03 <chr [2]>          softwareupda… <NA>       
     ##  9 iTunes                               11.4           2014-10-15 15:48:03 <chr [5]>          softwareupda… <NA>       
     ## 10 Keynote                              6.2.2          2014-10-15 15:48:21 <chr [1]>          storeagent    <NA>       
-    ## # ... with 1,503 more rows
+    ## # ... with 1,550 more rows
 
 ### macOS Version Info (short)
 
@@ -135,10 +174,10 @@ software_update_history()
 sw_vers()
 ```
 
-    ## # A tibble: 1 x 3
-    ##   ProductName ProductVersion BuildVersion
-    ##   <chr>       <chr>          <chr>       
-    ## 1 Mac OS X    10.13.5        17F45c
+    ## # A tibble: 1 x 6
+    ##   ProductName ProductVersion BuildVersion ProductFullName             Hardware KernelVersion
+    ##   <chr>       <chr>          <chr>        <chr>                       <chr>    <chr>        
+    ## 1 Mac OS X    10.13.5        17F70a       macOS High Sierra (10.13.5) x86_64   17.6.0
 
 ### Airport scan
 
