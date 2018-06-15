@@ -30,7 +30,8 @@ The following functions are implemented:
 ## Installation
 
 ``` r
-devtools::install_github("hrbrmstr/mactheknife")
+devtools::install_git("git://gitlab.com/hrbrmstr/mactheknife")
+devtools::install_git("git://github.com/hrbrmstr/mactheknife")
 ```
 
 ## Usage
