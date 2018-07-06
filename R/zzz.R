@@ -15,6 +15,7 @@ if (utils::compareVersion(x$version, "3.5") < 0) {
 
 dsstore <- NULL
 os <- NULL
+plistlib <- NULL
 
 .onLoad <- function(libname, pkgname) {
   dsstore <<- reticulate::import_from_path(
@@ -22,4 +23,5 @@ os <- NULL
     path = system.file("modules", package = "mactheknife")
   )
   os <<- reticulate::import("os", delay_load = TRUE)
+  plistlib <<- reticulate::import("plistlib", delay_load = TRUE)
 }

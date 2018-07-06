@@ -15,7 +15,7 @@ system_profile(detail_level = c("mini", "basic", "full"))
 }}
 }
 \description{
-TODO Do more than just return an xml document once a generica plist reader
+TODO Do more than just return an xml document once a generic plist reader
 is created.
 }
 \note{

@@ -1,6 +1,6 @@
 #' Report system hardware and software configuration
 #'
-#' TODO Do more than just return an xml document once a generica plist reader
+#' TODO Do more than just return an xml document once a generic plist reader
 #' is created.
 #'
 #' @md
