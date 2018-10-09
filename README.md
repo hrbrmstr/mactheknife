@@ -20,6 +20,7 @@ The following functions are implemented:
 
   - `airport_scan`: Scan for available wireless network (requires Wi-Fi
     enabled Mac)
+  - `applescript`: Execute AppleScript and Return Results
   - `kernel_state`: Retrieve kernel state information
   - `find_dsstore`: Find and optionally remove ‘.DS\_Store’ files on a
     locally-accessible filesystem
