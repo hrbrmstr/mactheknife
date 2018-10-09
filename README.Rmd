@@ -93,7 +93,6 @@ str(x)
 software_update_history()
 ```
 
-
 ### macOS Version Info (short)
 
 ```{r}
@@ -106,3 +105,14 @@ sw_vers()
 airport_scan()
 ```
 
+```{r applescript}
+res <- applescript('
+tell application "iTunes" 
+  set r_name to name of current track
+  set r_artist to artist of current track
+end
+return "artist=" & r_artist & "\ntrack=" & r_name
+')
+
+print(res)
+```

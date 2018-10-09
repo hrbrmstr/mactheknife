@@ -52,7 +52,7 @@ packageVersion("mactheknife")
 kernel_state()
 ```
 
-    ## # A tibble: 1,212 x 2
+    ## # A tibble: 1,215 x 2
     ##    setting               value                        
     ##    <chr>                 <chr>                        
     ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
@@ -65,7 +65,7 @@ kernel_state()
     ##  8 user.line_max         2048                         
     ##  9 user.re_dup_max       255                          
     ## 10 user.posix2_version   200112                       
-    ## # ... with 1,202 more rows
+    ## # ... with 1,205 more rows
 
 ### `.DS_Store` example
 
@@ -131,7 +131,7 @@ read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
 
 ### A Directory of`.DS_Store`s
 
-A larger example using my “~/projects” folder (use your own dir as an
+A larger example using my “\~/projects” folder (use your own dir as an
 example).
 
 ``` r
@@ -146,8 +146,13 @@ list.files(
 str(x)
 ```
 
-    ## List of 1
-    ##  $ : chr "2018-data-220g"
+    ## List of 6
+    ##  $ : chr [1:2] "2018-data-220g" "2018-whitehouse-f500"
+    ##  $ : chr [1:23] "2018-whitehouse-f500.Rproj" "blacklist.R" "cleanup.R" "cwe-cve-exposure.R" ...
+    ##  $ : chr "vulns"
+    ##  $ : chr [1:2] "docx" "html5"
+    ##  $ : chr [1:2] "figure-docx" "figure-html5"
+    ##  $ : chr [1:15] "blacklist-growth-1.png" "dns-app-exposure-1.png" "f500-dmarc-1.png" "heis-conn-ratio-by-sector-1.png" ...
 
 ### “Software Update” History
 
@@ -155,7 +160,7 @@ str(x)
 software_update_history()
 ```
 
-    ## # A tibble: 1,560 x 6
+    ## # A tibble: 1,835 x 6
     ##    displayName                          displayVersion date                packageIdentifiers processName   contentType
     ##    <chr>                                <chr>          <dttm>              <list>             <chr>         <chr>      
     ##  1 Command Line Developer Tools for OS… 5.1.0.0        2014-10-14 19:06:45 <chr [2]>          softwareupda… <NA>       
@@ -168,7 +173,7 @@ software_update_history()
     ##  8 iBooks Update                        1.0.1          2014-10-15 15:48:03 <chr [2]>          softwareupda… <NA>       
     ##  9 iTunes                               11.4           2014-10-15 15:48:03 <chr [5]>          softwareupda… <NA>       
     ## 10 Keynote                              6.2.2          2014-10-15 15:48:21 <chr [1]>          storeagent    <NA>       
-    ## # ... with 1,550 more rows
+    ## # ... with 1,825 more rows
 
 ### macOS Version Info (short)
 
@@ -177,9 +182,9 @@ sw_vers()
 ```
 
     ## # A tibble: 1 x 6
-    ##   ProductName ProductVersion BuildVersion ProductFullName             Hardware KernelVersion
-    ##   <chr>       <chr>          <chr>        <chr>                       <chr>    <chr>        
-    ## 1 Mac OS X    10.13.5        17F70a       macOS High Sierra (10.13.5) x86_64   17.6.0
+    ##   ProductName ProductVersion BuildVersion ProductFullName Hardware KernelVersion
+    ##   <chr>       <chr>          <chr>        <chr>           <chr>    <chr>        
+    ## 1 Mac OS X    10.14.1        18B50c       Unknown         x86_64   18.2.0
 
 ### Airport scan
 
@@ -196,3 +201,17 @@ airport_scan()
     ## 2 RDN-100      56:d9:e7:7b:9e:25   -55 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)
     ## 3 RDN-5G       46:d9:e7:7b:9e:25   -59 1       Y     --    WPA2(PSK,FT-PSK/AES/AES)
     ## 4 RDN-5G       46:d9:e7:b3:80:47   -23 11      Y     --    WPA2(PSK,FT-PSK/AES/AES)
+
+``` r
+res <- applescript('
+tell application "iTunes" 
+  set r_name to name of current track
+  set r_artist to artist of current track
+end
+return "artist=" & r_artist & "\ntrack=" & r_name
+')
+
+print(res)
+```
+
+    ## [1] "artist=CHEMISTRY" "track=Period"
