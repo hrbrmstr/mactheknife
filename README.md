@@ -5,7 +5,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Signed
 by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/hrbrmstr)
 ![Signed commit
-%](https://img.shields.io/badge/Signed_Commits-94.1%25-lightgrey.svg)
+%](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
 [![Linux build
 Status](https://travis-ci.org/hrbrmstr/mactheknife.svg?branch=master)](https://travis-ci.org/hrbrmstr/mactheknife)
 [![Coverage
@@ -53,6 +53,8 @@ The following functions are implemented:
 ## Installation
 
 ``` r
+remotes::install_git("https://git.rud.is/hrbrmstr/mactheknife.git")
+# or
 remotes::install_git("https://git.sr.ht/~hrbrmstr/mactheknife")
 # or
 remotes::install_gitlab("hrbrmstr/mactheknife")
