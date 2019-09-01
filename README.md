@@ -59,6 +59,8 @@ remotes::install_git("https://git.sr.ht/~hrbrmstr/mactheknife")
 # or
 remotes::install_gitlab("hrbrmstr/mactheknife")
 # or
+remotes::install_bitbucket("hrbrmstr/mactheknife")
+# or
 remotes::install_github("hrbrmstr/mactheknife")
 ```
 
@@ -224,7 +226,7 @@ return "artist=" & r_artist & "\ntrack=" & r_name
 ')
 
 print(res)
-## [1] "artist=Sukima Switch"    "track=Golden Time Lover"
+## [1] "artist=NICO Touches the Walls" "track=Hologram"
 ```
 
 ### App info
