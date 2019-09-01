@@ -1,14 +1,17 @@
 ---
 output: rmarkdown::github_document
 ---
+```{r pkg-knitr-opts, include=FALSE}
+hrbrpkghelpr::global_opts()
+```
 
-# mactheknife
+```{r badges, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::stinking_badges()
+```
 
-Various 'macOS'-oriented Tools and Utilities
-
-## Description
-
-A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
+```{r description, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::yank_title_and_description()
+```
 
 ## NOTE
 
@@ -18,29 +21,19 @@ A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 
 The following functions are implemented:
 
-- `airport_scan`:	Scan for available wireless network (requires Wi-Fi enabled Mac)
-- `applescript`:	Execute AppleScript and Return Results
-- `resolve_alias`:  Resovle macOS binary alias files to their POSIX path strings
-- `kernel_state`:	Retrieve kernel state information
-- `find_dsstore`:	Find and optionally remove '.DS_Store' files on a locally-accessible filesystem
-- `read_dsstore`:	Read a '.DS_Store' from a file/URL
-- `software_update_history`:	Retrieve Software Update history
-- `sw_vers`:	Retrieve macOS Operating System Version Information
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
 
 ## Installation
 
-```{r eval=FALSE}
-devtools::install_git("git://gitlab.com/hrbrmstr/mactheknife")
-devtools::install_git("git://github.com/hrbrmstr/mactheknife")
-```
-
-```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
-options(width=120)
+```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::install_block()
 ```
 
 ## Usage
 
-```{r message=FALSE, warning=FALSE, error=FALSE}
+```{r use, message=FALSE, warning=FALSE, error=FALSE}
 library(mactheknife)
 
 # current verison
@@ -50,7 +43,7 @@ packageVersion("mactheknife")
 
 ### Kernel state vars
 
-```{r}
+```{r ks}
 kernel_state()
 ```
 
@@ -58,7 +51,7 @@ kernel_state()
 
 Using built-in data
 
-```{r}
+```{r ds1}
 read_dsstore(
   path = system.file("extdat", "DS_Store.ctf", package = "mactheknife")
 )
@@ -68,7 +61,7 @@ read_dsstore(
 
 A URL I should not have let a `.DS_Store` file lying around in
 
-```{r}
+```{r ds2}
 read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
 ```
 
@@ -76,12 +69,12 @@ read_dsstore("https://rud.is/books/21-recipes/.DS_Store")
 
 A larger example using my "~/projects" folder (use your own dir as an example).
 
-```{r}
+```{r ds-dir, cache = FALSE}
 library(magrittr)
 
 list.files(
   path = "~/projects", pattern = "\\.DS_Store", 
-  all.files=TRUE, recursive = TRUE, full.names = TRUE
+  all.files = TRUE, recursive = TRUE, full.names = TRUE
 ) %>% 
   lapply(read_dsstore) -> x
 
@@ -90,25 +83,21 @@ str(x)
 
 ### "Software Update" History
 
-```{r}
+```{r suh}
 software_update_history()
 ```
 
 ### macOS Version Info (short)
 
-```{r}
+```{r swv}
 sw_vers()
 ```
 
-### Airport scan
-
-```{r airport, cache=TRUE}
-airport_scan()
-```
+### Applescript
 
 ```{r applescript}
 res <- applescript('
-tell application "iTunes" 
+tell application "Music" 
   set r_name to name of current track
   set r_artist to artist of current track
 end
@@ -117,3 +106,22 @@ return "artist=" & r_artist & "\ntrack=" & r_name
 
 print(res)
 ```
+
+### App info
+
+```{r app}
+check_sig("/Applications/RSwitch.app") %>% 
+  print(n=nrow(.))
+
+check_notarization("/Applications/RSwitch.app")
+```
+
+## macthekinfe Metrics
+
+```{r cloc, echo=FALSE}
+cloc::cloc_pkg_md()
+```
+
+## Code of Conduct
+
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.

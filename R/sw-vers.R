@@ -32,6 +32,8 @@ sw_vers <- function() {
     grepl("^10\\.11$|^10\\.11\\.[0-9]*$", out$ProductVersion) ~ "Mac OS X 10.11 (El Capitan)",
     grepl("^10\\.12$|^10\\.12\\.[0-9]*$", out$ProductVersion) ~ sprintf("macOS Sierra (%s)", out$ProductVersion),
     grepl("^10\\.13$|^10\\.13\\.[0-9]*$", out$ProductVersion) ~ sprintf("macOS High Sierra (%s)", out$ProductVersion),
+    grepl("^10\\.14$|^10\\.14\\.[0-9]*$", out$ProductVersion) ~ sprintf("macOS Mojave (%s)", out$ProductVersion),
+    grepl("^10\\.15$|^10\\.15\\.[0-9]*$", out$ProductVersion) ~ sprintf("macOS Catalina (%s)", out$ProductVersion),
     TRUE ~ "Unknown"
   ) -> out$ProductFullName
 

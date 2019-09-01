@@ -8,6 +8,14 @@
 \description{
 A set of tools/methods and data that are geared towards the 'macOS' ecosystem.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://gitlab.com/hrbrmstr/mactheknife}
+  \item Report bugs at \url{https://gitlab.com/hrbrmstr/mactheknife/issues}
+}
+
+}
 \author{
 Bob Rudis (bob@rud.is)
 }

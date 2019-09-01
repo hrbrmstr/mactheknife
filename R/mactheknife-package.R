@@ -12,4 +12,5 @@
 #' @importFrom anytime anytime
 #' @importFrom stats complete.cases
 #' @importFrom utils compareVersion download.file read.fwf type.convert
-NULL
+#' @import stringi
+"_PACKAGE"
