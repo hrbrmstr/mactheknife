@@ -9,7 +9,8 @@ check_sig <- function(path_to_app) {
 
   codesign <- Sys.which("codesign")
 
-  res <- sys::exec_internal(codesign, arg = c("-dvvvv", path_to_app))
+  res <- try(sys::exec_internal(codesign, arg = c("-dvvvv", path_to_app)), silent = TRUE)
+  if (inherits(res, "try-error")) return(NULL)
 
   if (res$status != 0) {
     stop("Error running codesign utility. Are you on macOS?", call.=FALSE)

@@ -12,7 +12,16 @@ check_notarization <- function(path_to_app) {
 
   spctl <- Sys.which("spctl")
 
-  res <- sys::exec_internal(spctl, arg = c("-a", "-vv", path_to_app))
+  res <- try(sys::exec_internal(spctl, arg = c("-a", "-vv", path_to_app)), silent = TRUE)
+
+  if (inherits(res, "try-error")) {
+    return(
+      dplyr::tibble(
+        key = c("application", "origin", "source", "status"),
+        value = c(path_to_app, NA_character_, NA_character_, "no notarization info")
+      )
+    )
+  }
 
   if (res$status != 0) {
     stop("Error running spctl utility Are you on macOS?", call.=FALSE)
