@@ -40,6 +40,8 @@ The following functions are implemented:
   - `check_sig`: Check application signature/notarization information
   - `find_dsstore`: Find and optionally remove .DS\_Store files on a
     locally-accessible filesystem
+  - `get_app_info`: Retrieve iTunes info about a give app (via bundle
+    id)
   - `kernel_state`: Retrieve kernel state information
   - `logger`: Log a message to the macOS logging system (searchable from
     Console.app)
@@ -47,6 +49,7 @@ The following functions are implemented:
   - `read_plist`: Read a macOS property list file
   - `resolve_alias`: Resolve macOS Alias Files to POSIX path strings
   - `software_update_history`: Retrieve Software Update history
+  - `src_knowledgeC`: Source the ‘knowledgeC.db’ on the local system
   - `sw_vers`: Retrieve macOS Operating System Version Information
   - `system_profile`: Report system hardware and software configuration
 
@@ -81,7 +84,7 @@ packageVersion("mactheknife")
 
 ``` r
 kernel_state()
-## # A tibble: 1,294 x 2
+## # A tibble: 1,321 x 2
 ##    setting               value                        
 ##    <chr>                 <chr>                        
 ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
@@ -94,7 +97,7 @@ kernel_state()
 ##  8 user.line_max         2048                         
 ##  9 user.re_dup_max       255                          
 ## 10 user.posix2_version   200112                       
-## # … with 1,284 more rows
+## # … with 1,311 more rows
 ```
 
 ### `.DS_Store` example
@@ -171,7 +174,8 @@ list.files(
   lapply(read_dsstore) -> x
 
 str(x)
-## List of 10
+## List of 22
+##  $ : chr [1:9] "2018-asx-200" "2019-factset" "2019-ftse250" "2019-germany" ...
 ##  $ : chr [1:4] "figures" "python" "R" "support"
 ##  $ : chr [1:4] "data" "figures" "python" "R"
 ##  $ : chr(0) 
@@ -181,6 +185,17 @@ str(x)
 ##  $ : chr(0) 
 ##  $ : chr(0) 
 ##  $ : chr(0) 
+##  $ : chr(0) 
+##  $ : chr "data"
+##  $ : chr(0) 
+##  $ : chr "data"
+##  $ : chr [1:2] "data" "working-final_files"
+##  $ : chr "hars"
+##  $ : chr "data"
+##  $ : chr "R"
+##  $ : chr [1:2] "data" "working-final_files"
+##  $ : chr "figure-html"
+##  $ : chr "data"
 ##  $ : chr(0)
 ```
 
@@ -188,7 +203,7 @@ str(x)
 
 ``` r
 software_update_history()
-## # A tibble: 203 x 6
+## # A tibble: 321 x 6
 ##    displayName                   displayVersion date                packageIdentifiers processName     contentType
 ##    <chr>                         <chr>          <dttm>              <list>             <chr>           <chr>      
 ##  1 XProtectPlistConfigData       2103           2019-06-03 22:18:20 <chr [2]>          softwareupdated config-data
@@ -201,7 +216,7 @@ software_update_history()
 ##  8 MindNode                      6.0.3          2019-06-06 00:50:26 <chr [1]>          appstoreagent   <NA>       
 ##  9 Tweetbot                      3.3            2019-06-06 00:50:56 <chr [1]>          appstoreagent   <NA>       
 ## 10 Microsoft Excel               <NA>           2019-06-06 00:52:53 <chr [1]>          installer       <NA>       
-## # … with 193 more rows
+## # … with 311 more rows
 ```
 
 ### macOS Version Info (short)
@@ -209,9 +224,9 @@ software_update_history()
 ``` r
 sw_vers()
 ## # A tibble: 1 x 6
-##   ProductName ProductVersion BuildVersion ProductFullName        Hardware KernelVersion
-##   <chr>       <chr>          <chr>        <chr>                  <chr>    <chr>        
-## 1 Mac OS X    10.15          19A546d      macOS Catalina (10.15) x86_64   19.0.0
+##   ProductName ProductVersion BuildVersion ProductFullName          Hardware KernelVersion
+##   <chr>       <chr>          <chr>        <chr>                    <chr>    <chr>        
+## 1 Mac OS X    10.15.1        19B86a       macOS Catalina (10.15.1) x86_64   19.0.0
 ```
 
 ### Applescript
@@ -226,7 +241,9 @@ return "artist=" & r_artist & "\ntrack=" & r_name
 ')
 
 print(res)
-## [1] "artist=NICO Touches the Walls" "track=Hologram"
+## character(0)
+## attr(,"status")
+## [1] 1
 ```
 
 ### App info
@@ -240,27 +257,27 @@ check_sig("/Applications/RSwitch.app") %>%
 ##  1 Executable                  /Applications/RSwitch.app/Contents/MacOS/RSwitch                    
 ##  2 Identifier                  is.rud.bob.RSwitch                                                  
 ##  3 Format                      app bundle with Mach-O thin (x86_64)                                
-##  4 CodeDirectory v             20500 size=1342 flags=0x10000(runtime) hashes=33+5 location=embedded
+##  4 CodeDirectory v             20500 size=2142 flags=0x10000(runtime) hashes=58+5 location=embedded
 ##  5 VersionPlatform             1                                                                   
 ##  6 VersionMin                  658944                                                              
 ##  7 VersionSDK                  659200                                                              
 ##  8 Hash type                   sha256 size=32                                                      
-##  9 CandidateCDHash sha256      efa512a9daabfb9402af8a91697f008b89ffa81e                            
-## 10 CandidateCDHashFull sha256  efa512a9daabfb9402af8a91697f008b89ffa81ea014452821e39a5365d80fe6    
+##  9 CandidateCDHash sha256      28de5b33fe3eebcbfae885a4dddfa751e28a4e43                            
+## 10 CandidateCDHashFull sha256  28de5b33fe3eebcbfae885a4dddfa751e28a4e43425a7cc02f4268c544c6ff98    
 ## 11 Hash choices                sha256                                                              
-## 12 CMSDigest                   efa512a9daabfb9402af8a91697f008b89ffa81ea014452821e39a5365d80fe6    
+## 12 CMSDigest                   28de5b33fe3eebcbfae885a4dddfa751e28a4e43425a7cc02f4268c544c6ff98    
 ## 13 CMSDigestType               2                                                                   
 ## 14 Page size                   4096                                                                
-## 15 CDHash                      efa512a9daabfb9402af8a91697f008b89ffa81e                            
-## 16 Signature size              8968                                                                
+## 15 CDHash                      28de5b33fe3eebcbfae885a4dddfa751e28a4e43                            
+## 16 Signature size              8967                                                                
 ## 17 Authority                   Developer ID Application: Bob Rudis (CBY22P58G8)                    
 ## 18 Authority                   Developer ID Certification Authority                                
 ## 19 Authority                   Apple Root CA                                                       
-## 20 Timestamp                   Sep 1, 2019 at 08:46:41                                             
+## 20 Timestamp                   Sep 21, 2019 at 08:44:46                                            
 ## 21 Info.plist entries          26                                                                  
 ## 22 TeamIdentifier              CBY22P58G8                                                          
 ## 23 Runtime Version             10.15.0                                                             
-## 24 Sealed Resources version    2 rules=13 files=26                                                 
+## 24 Sealed Resources version    2 rules=13 files=32                                                 
 ## 25 Internal requirements count 1 size=212
 
 check_notarization("/Applications/RSwitch.app")
@@ -277,8 +294,8 @@ check_notarization("/Applications/RSwitch.app")
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |       19 | 0.95 | 329 | 0.91 |         103 | 0.72 |      149 | 0.73 |
-| Rmd  |        1 | 0.05 |  33 | 0.09 |          40 | 0.28 |       54 | 0.27 |
+| R    |       21 | 0.95 | 373 | 0.92 |         119 | 0.75 |      157 | 0.74 |
+| Rmd  |        1 | 0.05 |  33 | 0.08 |          40 | 0.25 |       54 | 0.26 |
 
 ## Code of Conduct
 
