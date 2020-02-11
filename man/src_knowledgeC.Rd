@@ -4,8 +4,9 @@
 \alias{src_knowledgeC}
 \title{Source the `knowledgeC.db` on the local system}
 \usage{
-
-  src_knowledgeC(knowledgeC_location = "~/Library/Application Support/Knowledge/knowledgeC.db")
+src_knowledgeC(
+  knowledgeC_location = "~/Library/Application Support/Knowledge/knowledgeC.db"
+)
 }
 \arguments{
 \item{knowledgeC_location}{location of the `knowledgeC.db` file (defaults to "`~/Library/Application Support/Knowledge/knowledgeC.db`")}

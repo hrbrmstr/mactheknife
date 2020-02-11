@@ -45,6 +45,8 @@ The following functions are implemented:
   - `kernel_state`: Retrieve kernel state information
   - `logger`: Log a message to the macOS logging system (searchable from
     Console.app)
+  - `mdls`: Return a data frame of macOS Spotlight Metadata Attributes
+    for the specified paths
   - `read_dsstore`: Read a .DS\_Store from a file/URL
   - `read_plist`: Read a macOS property list file
   - `resolve_alias`: Resolve macOS Alias Files to POSIX path strings
@@ -77,14 +79,83 @@ library(mactheknife)
 
 # current verison
 packageVersion("mactheknife")
-## [1] '0.2.0'
+## [1] '0.3.0'
+```
+
+### `mdls` info
+
+``` r
+res <- mdls(list.files(here::here("R"), full.names = TRUE))
+
+res
+## # A tibble: 20 x 27
+##    kMDItemContentCrea… kMDItemContentCrea… kMDItemContentModi… kMDItemContentT… kMDItemContentT… kMDItemDateAdded   
+##    <dttm>              <dttm>              <dttm>              <chr>            <list>           <dttm>             
+##  1 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-04-30 00:29:39 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+##  2 2018-10-09 17:21:09 2018-10-09 00:00:00 2018-10-09 17:23:04 com.apple.rez-s… <chr [7]>        2018-10-09 17:21:09
+##  3 2019-09-01 13:37:35 2019-09-01 00:00:00 2019-09-01 14:37:13 com.apple.rez-s… <chr [7]>        2019-09-01 13:37:35
+##  4 2019-09-01 13:55:51 2019-09-01 00:00:00 2019-09-01 14:50:36 com.apple.rez-s… <chr [7]>        2019-09-01 13:55:51
+##  5 2018-04-30 17:49:23 2018-04-30 00:00:00 2018-04-30 18:05:24 com.apple.rez-s… <chr [7]>        2018-04-30 17:49:23
+##  6 2019-10-28 17:03:26 2019-10-28 00:00:00 2019-10-28 17:03:26 com.apple.rez-s… <chr [7]>        2019-10-28 17:03:26
+##  7 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-04-30 00:29:39 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+##  8 2018-07-25 18:33:44 2018-07-25 00:00:00 2018-07-25 18:46:20 com.apple.rez-s… <chr [7]>        2018-07-25 18:33:44
+##  9 2018-04-30 00:29:39 2018-04-30 00:00:00 2019-10-28 17:04:48 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 10 2020-02-11 19:26:20 2020-02-11 00:00:00 2020-02-11 19:50:05 com.apple.rez-s… <chr [7]>        2020-02-11 19:26:20
+## 11 2019-06-02 13:21:57 2019-06-02 00:00:00 2019-06-02 13:21:57 com.apple.rez-s… <chr [7]>        2019-06-02 13:21:57
+## 12 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-04-30 00:29:39 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 13 2018-07-06 16:38:09 2018-07-06 00:00:00 2018-07-06 16:38:09 com.apple.rez-s… <chr [7]>        2018-07-06 16:38:09
+## 14 2019-06-02 13:21:57 2019-06-02 00:00:00 2019-06-02 13:21:57 com.apple.rez-s… <chr [7]>        2019-06-02 13:21:57
+## 15 2019-10-28 17:04:25 2019-10-28 00:00:00 2019-10-28 17:05:37 com.apple.rez-s… <chr [7]>        2019-10-28 17:04:25
+## 16 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-04-30 18:04:05 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 17 2018-04-30 00:29:39 2018-04-30 00:00:00 2019-09-01 13:55:00 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 18 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-07-06 16:35:04 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 19 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-04-30 00:29:39 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## 20 2018-04-30 00:29:39 2018-04-30 00:00:00 2018-07-06 16:33:59 com.apple.rez-s… <chr [7]>        2018-04-30 00:29:39
+## # … with 21 more variables: kMDItemDateAdded_Ranking <dttm>, kMDItemDisplayName <chr>,
+## #   kMDItemFSContentChangeDate <dttm>, kMDItemFSCreationDate <dttm>, kMDItemFSCreatorCode <int>,
+## #   kMDItemFSFinderFlags <int>, kMDItemFSInvisible <lgl>, kMDItemFSIsExtensionHidden <lgl>, kMDItemFSLabel <int>,
+## #   kMDItemFSName <chr>, kMDItemFSOwnerGroupID <int>, kMDItemFSOwnerUserID <int>, kMDItemFSSize <int>,
+## #   kMDItemFSTypeCode <int>, kMDItemInterestingDate_Ranking <dttm>, kMDItemKind <chr>, kMDItemLogicalSize <int>,
+## #   kMDItemPhysicalSize <int>, X_kMDItemDisplayNameWithExtensions <chr>, kMDItemContentModificationDate_Ranking <dttm>,
+## #   kMDItemDocumentIdentifier <int>
+
+dplyr::glimpse(res)
+## Observations: 20
+## Variables: 27
+## $ kMDItemContentCreationDate             <dttm> 2018-04-30 00:29:39, 2018-10-09 17:21:09, 2019-09-01 13:37:35, 2019-0…
+## $ kMDItemContentCreationDate_Ranking     <dttm> 2018-04-30, 2018-10-09, 2019-09-01, 2019-09-01, 2018-04-30, 2019-10-2…
+## $ kMDItemContentModificationDate         <dttm> 2018-04-30 00:29:39, 2018-10-09 17:23:04, 2019-09-01 14:37:13, 2019-0…
+## $ kMDItemContentType                     <chr> "com.apple.rez-source", "com.apple.rez-source", "com.apple.rez-source"…
+## $ kMDItemContentTypeTree                 <list> [<"com.apple.rez-source", "public.source-code", "public.data", "publi…
+## $ kMDItemDateAdded                       <dttm> 2018-04-30 00:29:39, 2018-10-09 17:21:09, 2019-09-01 13:37:35, 2019-0…
+## $ kMDItemDateAdded_Ranking               <dttm> 2018-04-30, 2018-10-09, 2019-09-01, 2019-09-01, 2018-04-30, 2019-10-2…
+## $ kMDItemDisplayName                     <chr> "airport-scan.R", "applescript.R", "check_sig.R", "check-notary.R", "f…
+## $ kMDItemFSContentChangeDate             <dttm> 2018-04-30 00:29:39, 2018-10-09 17:23:04, 2019-09-01 14:37:13, 2019-0…
+## $ kMDItemFSCreationDate                  <dttm> 2018-04-30 00:29:39, 2018-10-09 17:21:09, 2019-09-01 13:37:35, 2019-0…
+## $ kMDItemFSCreatorCode                   <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+## $ kMDItemFSFinderFlags                   <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+## $ kMDItemFSInvisible                     <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …
+## $ kMDItemFSIsExtensionHidden             <lgl> FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …
+## $ kMDItemFSLabel                         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+## $ kMDItemFSName                          <chr> "airport-scan.R", "applescript.R", "check_sig.R", "check-notary.R", "f…
+## $ kMDItemFSOwnerGroupID                  <int> 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20…
+## $ kMDItemFSOwnerUserID                   <int> 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, 502, …
+## $ kMDItemFSSize                          <int> 1812, 1593, 842, 1301, 1758, 919, 426, 378, 523, 1018, 246, 1713, 425,…
+## $ kMDItemFSTypeCode                      <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+## $ kMDItemInterestingDate_Ranking         <dttm> 2018-04-30, 2018-10-09, 2019-09-01, 2019-09-01, 2018-04-30, 2019-10-2…
+## $ kMDItemKind                            <chr> "Rez Source", "Rez Source", "Visual Studio Code - Insiders document", …
+## $ kMDItemLogicalSize                     <int> 1812, 1593, 842, 1301, 1758, 919, 426, 378, 523, 1018, 246, 1713, 425,…
+## $ kMDItemPhysicalSize                    <int> 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096…
+## $ X_kMDItemDisplayNameWithExtensions     <chr> NA, "applescript.R", "check_sig.R", "check-notary.R", NA, "get-app-inf…
+## $ kMDItemContentModificationDate_Ranking <dttm> NA, 2018-10-09, 2019-09-01, 2019-09-01, NA, 2019-10-28, NA, 2018-07-2…
+## $ kMDItemDocumentIdentifier              <int> NA, 0, 0, 0, NA, 0, NA, 0, 0, 0, NA, NA, 0, NA, 0, NA, 0, NA, NA, NA
 ```
 
 ### Kernel state vars
 
 ``` r
 kernel_state()
-## # A tibble: 1,321 x 2
+## # A tibble: 1,296 x 2
 ##    setting               value                        
 ##    <chr>                 <chr>                        
 ##  1 user.cs_path          /usr/bin:/bin:/usr/sbin:/sbin
@@ -97,7 +168,7 @@ kernel_state()
 ##  8 user.line_max         2048                         
 ##  9 user.re_dup_max       255                          
 ## 10 user.posix2_version   200112                       
-## # … with 1,311 more rows
+## # … with 1,286 more rows
 ```
 
 ### `.DS_Store` example
@@ -174,8 +245,9 @@ list.files(
   lapply(read_dsstore) -> x
 
 str(x)
-## List of 22
-##  $ : chr [1:9] "2018-asx-200" "2019-factset" "2019-ftse250" "2019-germany" ...
+## List of 38
+##  $ : chr [1:21] "2018-asx-200" "2019-12-heisenberg-year-in-review" "2019-12-radiation" "2019-factset" ...
+##  $ : chr "data"
 ##  $ : chr [1:4] "figures" "python" "R" "support"
 ##  $ : chr [1:4] "data" "figures" "python" "R"
 ##  $ : chr(0) 
@@ -187,23 +259,38 @@ str(x)
 ##  $ : chr(0) 
 ##  $ : chr(0) 
 ##  $ : chr "data"
-##  $ : chr(0) 
+##  $ : chr "201912"
 ##  $ : chr "data"
 ##  $ : chr [1:2] "data" "working-final_files"
 ##  $ : chr "hars"
+##  $ : chr(0) 
+##  $ : chr "data"
+##  $ : chr "R"
 ##  $ : chr "data"
 ##  $ : chr "R"
 ##  $ : chr [1:2] "data" "working-final_files"
 ##  $ : chr "figure-html"
 ##  $ : chr "data"
-##  $ : chr(0)
+##  $ : chr "data"
+##  $ : chr "data"
+##  $ : chr [1:2] "data" "output"
+##  $ : chr "R"
+##  $ : chr [1:5] ".git" ".Rproj.user" "data" "output" ...
+##  $ : chr "2020-01"
+##  $ : chr(0) 
+##  $ : chr(0) 
+##  $ : chr [1:2] "data" "orig"
+##  $ : chr [1:3] "MDR-CA-Slack-HAR-to-CSV.command" "MDR-CA-Slack-HAR-to-CSV.R" "slackhar2csv.Rproj"
+##  $ : chr [1:36] "2010-11-05-raster.R" "2019-11-01-points.Rmd" "2019-11-02-lines.R" "2019-11-03-polygons.R" ...
+##  $ : chr [1:3] "GISofThrones" "lake-data" "Shape"
+##  $ : chr "13"
 ```
 
 ### “Software Update” History
 
 ``` r
 software_update_history()
-## # A tibble: 321 x 6
+## # A tibble: 537 x 6
 ##    displayName                   displayVersion date                packageIdentifiers processName     contentType
 ##    <chr>                         <chr>          <dttm>              <list>             <chr>           <chr>      
 ##  1 XProtectPlistConfigData       2103           2019-06-03 22:18:20 <chr [2]>          softwareupdated config-data
@@ -216,7 +303,7 @@ software_update_history()
 ##  8 MindNode                      6.0.3          2019-06-06 00:50:26 <chr [1]>          appstoreagent   <NA>       
 ##  9 Tweetbot                      3.3            2019-06-06 00:50:56 <chr [1]>          appstoreagent   <NA>       
 ## 10 Microsoft Excel               <NA>           2019-06-06 00:52:53 <chr [1]>          installer       <NA>       
-## # … with 311 more rows
+## # … with 527 more rows
 ```
 
 ### macOS Version Info (short)
@@ -226,7 +313,7 @@ sw_vers()
 ## # A tibble: 1 x 6
 ##   ProductName ProductVersion BuildVersion ProductFullName          Hardware KernelVersion
 ##   <chr>       <chr>          <chr>        <chr>                    <chr>    <chr>        
-## 1 Mac OS X    10.15.1        19B86a       macOS Catalina (10.15.1) x86_64   19.0.0
+## 1 Mac OS X    10.15.4        19E224g      macOS Catalina (10.15.4) x86_64   19.4.0
 ```
 
 ### Applescript
@@ -290,12 +377,12 @@ check_notarization("/Applications/RSwitch.app")
 ## 4 origin      Developer ID Application: Bob Rudis (CBY22P58G8)
 ```
 
-## macthekinfe Metrics
+## mactheknife Metrics
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |       21 | 0.95 | 373 | 0.92 |         119 | 0.75 |      157 | 0.74 |
-| Rmd  |        1 | 0.05 |  33 | 0.08 |          40 | 0.25 |       54 | 0.26 |
+| R    |       22 | 0.96 | 399 | 0.92 |         127 | 0.74 |      169 | 0.74 |
+| Rmd  |        1 | 0.04 |  36 | 0.08 |          44 | 0.26 |       59 | 0.26 |
 
 ## Code of Conduct
 

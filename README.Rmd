@@ -1,5 +1,7 @@
 ---
 output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
 ---
 ```{r pkg-knitr-opts, include=FALSE}
 hrbrpkghelpr::global_opts()
@@ -39,6 +41,16 @@ library(mactheknife)
 # current verison
 packageVersion("mactheknife")
 
+```
+
+### `mdls` info
+
+```{r mdls}
+res <- mdls(list.files(here::here("R"), full.names = TRUE))
+
+res
+
+dplyr::glimpse(res)
 ```
 
 ### Kernel state vars
@@ -116,7 +128,7 @@ check_sig("/Applications/RSwitch.app") %>%
 check_notarization("/Applications/RSwitch.app")
 ```
 
-## macthekinfe Metrics
+## mactheknife Metrics
 
 ```{r cloc, echo=FALSE}
 cloc::cloc_pkg_md()
